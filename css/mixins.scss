@@ -1,0 +1,104 @@
+@import "variables";
+@mixin style-form{
+  border:none;
+  outline:none;
+}
+@mixin background-image{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@mixin post-label{
+  position: absolute;
+  bottom:0;
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em;
+}
+@mixin grid-template
+{
+  width:100%;
+  display: grid;
+  grid-template-columns:70% 30%;
+}
+@mixin a-clear
+{
+    color: #fff;
+    text-decoration: none;
+}
+@mixin post-title
+{
+  font-weight: 300;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  font-size: 2.3rem;
+  min-height: 18vh;
+  font-family: $header-font;
+  a
+  {
+    @include a-clear;
+    color: #000;
+  }
+  a:hover
+  {
+    color: #777;
+  }
+}
+@mixin post-meta
+{
+  font-weight: 300;
+  font-size: 0.9rem;
+  text-transform: lowercase;
+  a
+  {
+    @include a-clear;
+  }
+  a:hover
+  {
+    color: #ccc;
+  }
+  i
+  {
+    color: $main-color;
+    padding:0 0.3rem;
+  }
+}
+@mixin box-clearfix
+{
+  margin:0;
+  padding:0;
+}
+@mixin post-content
+{
+  margin: 6vh 0;
+  .wp-caption {max-width: 100%; height: auto;}
+  div img{max-width: 100%; height: auto;}
+  img.aligncenter, div.aligncenter{display: block; margin:0 auto;}
+  img.alignright, div.alignright{display: block; float:right;}
+  img.alignleft, div.alignleft{display: block; float:left;}
+  p, ul li, ol li
+  {
+    word-spacing: 5px;
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.7;
+    margin: 0.2rem;
+  }
+  h1,h2,h3,h4,h5,h6{font-family: $header-font; font-size: 250%;}
+  a{@include a-clear; color:#bbb;}
+  a:hover{color:#ddd;}
+  .wp-caption-text
+  {
+    color:#aaa;
+    font-size: 0.8rem;
+    font-style: italic;
+    text-align: center;
+  }
+}
+@keyframes bubble {
+30%{transform: scale(1.20);}
+50%{transform: scale(1.10);}
+70%{transform: scale(1.15);}
+100%{transform: scale(1);}
+}

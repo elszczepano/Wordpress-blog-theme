@@ -1,0 +1,37 @@
+@import "variables";
+@import "mixins";
+.to-top-button
+{
+  position:fixed;
+  bottom:0;
+  right:6%;
+  background-color: $main-color-light;
+  padding:0.8rem;
+  margin-bottom: 0.5rem;
+  cursor:pointer;
+  border-radius: 5px;
+  i{color: #fff; font-size: 1.2rem;}
+}
+footer
+{
+  background-color: $dark-main-color;
+  width: 100%;
+  font-family: $header-font;
+  padding:2rem 0.5rem;
+  box-sizing: border-box;
+}
+.footer-content
+{
+  text-align: center;
+  color: #fff;
+  .footer-logo
+  {
+    font-size: 1.4rem;
+    a
+    {
+    @include a-clear;
+    font-family:  $logo-font;
+    line-height: 30px;
+    }
+  }
+}

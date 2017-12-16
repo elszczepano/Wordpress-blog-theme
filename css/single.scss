@@ -1,0 +1,195 @@
+@import "variables";
+@import "mixins";
+//progress bar
+.progress-bar
+{
+  @include box-clearfix;
+  top: $menu-height;
+  left:0;
+  width:100%;
+  height:5px;
+  position:fixed;
+  background-color: #eee;
+}
+.progress-bar::-webkit-progress-bar
+{
+  background-color: #eee;
+  border-radius: 2px;
+}
+.progress-bar::-moz-progress-bar
+{
+  background-color: #eee;
+  border-radius: 2px;
+}
+.progress-bar::-webkit-progress-value{background: $contrast-color; transition: 0.3s width linear;}
+.progress-bar::-moz-progress-value{background: $contrast-color; transition: 0.3s width linear;}
+//single post
+.single-post-thumbnail
+{
+  width: 100%;
+  height:40vh;
+  @include background-image;
+  background-position: fixed;
+  margin-top:$menu-height+30px;
+}
+.single-post-about
+{
+  h1, h2 {@include box-clearfix;}
+  h1
+  {
+    @include post-title;
+    min-height:0;
+    font-size: 3rem;
+    padding:1.3vh 0;
+  }
+  h2
+  {
+    padding:1.3vh 0;
+    font-weight: 300;
+    font-size:0.8rem;
+    @include post-meta;
+    a{color:#000;}
+    a:hover{color:#666;}
+  }
+  border-bottom: $dashed;
+}
+.single-post-content-wrapper
+{
+  display: grid;
+  grid-template-columns: 70% 30%;
+  border-bottom: $dashed;
+}
+.single-post-content
+{
+  @include post-content;
+}
+//comments section
+h3#comments{display: none;}
+.commentlist
+{
+  width:60%;
+  li
+  {
+    list-style: none;
+    div
+    {
+      padding: 0, 0.5rem;
+      .comment-author
+      {
+        img{width:7%;height: auto; padding: 0.5rem;}
+        cite.fn{a
+          {
+            @include a-clear;
+            color: $contrast-color;
+            font-style: normal;
+            text-transform: uppercase;
+            font-weight: 700;
+          }}
+      }
+      .comment-meta
+      {
+        a{@include a-clear; color: $contrast-color;}
+      }
+      .reply
+      {
+        margin-bottom: 1rem;
+        a{color: $contrast-color; text-decoration: none;}
+        a:hover{color:#56B0E4;}
+      }
+    }
+    div.comment-body
+    {
+      border-bottom: 1px solid #eee;
+      margin-bottom: 1rem;
+    }
+
+  }
+}
+.comment-respond
+{
+  width:60%;
+  .comment-reply-title
+  {
+    text-transform: uppercase;
+    font-weight: bold;
+    a { text-decoration: none; color: #bbb; transition: 0.3s;}
+    a:hover{color: #ddd;}
+  }
+  form
+  {
+    p label
+    {
+      display:block;
+      font-weight: bold;
+      color: $contrast-color;
+      font-size: 1.2rem;
+    }
+    .comment-notes{font-style:italic;}
+    .comment-form-comment
+    {
+      label{display: none;}
+      textarea
+      {
+        border: 1px solid #ddd;
+        resize: vertical;
+        width:100%;
+        font-size: 1.05rem;
+        padding:10px;
+      }
+    }
+    p input
+    {
+      width: 50%;
+      border: 1px solid #ddd;
+      font-size: 1.05rem;
+      padding:10px;
+    }
+    p input[type=submit]
+    {
+      width: auto;
+      background-color: $contrast-color;
+      outline:none;
+      color: #fff;
+      text-transform: uppercase;
+      font-family: $header-font;
+      font-weight: bold;
+      cursor:pointer;
+    }
+    p .submit:hover{  background-color:#56B0E4;}
+  }
+}
+//media queries//
+@media only screen and (max-width: 1156px) {
+  .single-post-content-wrapper
+  {
+    grid-template-columns: 100%;
+  }
+  .single-post-content
+  {
+    p{font-size:1.4rem;}
+    .wp-caption{max-width: 90%; height: auto;}
+  }
+  .commentlist, .comment-respond
+  {
+    width:100%;
+  }
+  .comment-respond{form
+    {
+      .comment-form-comment
+        {
+          textarea
+            {
+              display: block;
+              width:90%;
+              margin: 0 auto;
+            }
+  }
+   p input
+   {
+     display: block;
+     width:90%;
+     margin: 0 auto;
+   }
+   p input[type=submit]{width:auto;}
+}}
+}
