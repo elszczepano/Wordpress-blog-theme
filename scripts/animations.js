@@ -21,9 +21,9 @@ $(window).scroll(function() {
 //reading progress bar
 var article = document.querySelector('.single-container');
 if(article!=null){
-  var windowHeight = window.innerHeight,
+  var bodyHeight = body.innerHeight,
       articleHeight = article.clientHeight,
-      maxScroll = (articleHeight - windowHeight)+190,
+      maxScroll = articleHeight - bodyHeight,
       progress = document.createElement('progress');
 
   progress.classList.add('progress-bar');
